@@ -13,6 +13,5 @@ My whole system managed by [Puppet](https://puppet.com/).
 
 ## Start Puppet
 
-    cd /etc/puppetlabs/code/environments/production
-    sudo puppet apply manifests/
+    sudo puppet apply /etc/puppetlabs/code/environments/production/manifests
 
