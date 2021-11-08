@@ -2,6 +2,13 @@
 
 set -o errexit
 
-cd /etc/puppetlabs/code/environments/production && git pull
+WORKDIR="/etc/puppetlabs/code/environments/production"
 
-/opt/puppetlabs/bin/puppet apply manifests/
+die() { echo "[-] $1"; return 1; }
+
+[ -d "$WORKDIR" ] || die "No directory $WORKDIR found."
+[ "$(id -u)" -eq 0 ] || die "Please run as root."
+
+cd "$WORKDIR"
+git pull
+puppet apply manifests/
