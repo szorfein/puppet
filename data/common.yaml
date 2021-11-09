@@ -2,3 +2,5 @@
   test: 'This is a test'
   harden_sysctl: true
   use_tor: true
+  classes:
+    - profile::ntp

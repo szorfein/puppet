@@ -10,7 +10,7 @@ class tor {
   }
 
   service { 'tor':
-    start  => true,
+    ensure => running,
     enable => true,
   }
 }
