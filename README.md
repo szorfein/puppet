@@ -15,7 +15,11 @@ Or manually:
     sudo mv production production.backup
     sudo git clone https://github.com/szorfein/puppet production
 
-## Start Puppet
+## First launch
 
     sudo puppet apply /etc/puppetlabs/code/environments/production/manifests
 
+## Scripts added
+
++ `/usr/local/bin/run-puppet`: update the repo and apply new change.
++ `/usr/local/bin/secure-time-sync`: update localtime securely [src](https://gitlab.com/madaidan/secure-time-sync/).
