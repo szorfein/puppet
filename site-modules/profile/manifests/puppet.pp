@@ -2,9 +2,11 @@ class profile::puppet {
 
   include cron
 
+  $dir = '/etc/puppetlabs/code/environments/production/site-modules/profile/files'
+
   file { '/usr/local/bin/run-puppet':
     ensure => present,
-    source => 'puppet://modules/profile/run-puppet.sh',
+    source => "${dir}/run-puppet.sh",
     mode   => '0744',
   }
 
