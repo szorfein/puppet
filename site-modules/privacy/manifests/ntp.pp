@@ -3,7 +3,7 @@ class privacy::ntp {
   include cron
   include tor
 
-  if $ntp_with_tor {
+  if $privacy::ntp_with_tor {
     file_line { 'add-secure-time-sync-tor':
       path   => '/etc/tor/torrc',
       line   => 'SocksPort 9055',
