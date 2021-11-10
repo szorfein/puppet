@@ -11,4 +11,4 @@ die() { echo "[-] $1"; return 1; }
 
 cd "$WORKDIR"
 git pull
-puppet apply manifests/
+puppet apply --environment production manifests/

@@ -2,5 +2,9 @@
   test: 'This is a test'
   harden_sysctl: true
   use_tor: true
+  service_provider: 'systemd'
   classes:
-    - profile::ntp
+    - role::privacy
+    - profile::puppet
+  privacy::ntp_with_tor: true
+  privacy::generic_machine_id: true
