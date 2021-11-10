@@ -2,6 +2,7 @@
   harden_sysctl: true
   service_provider: 'systemd'
   classes:
+    - role::harden
     - role::privacy
     - profile::puppet
   ntp::use_tor: true
