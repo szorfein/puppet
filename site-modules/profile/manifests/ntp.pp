@@ -1,4 +1,4 @@
 class profile::ntp {
 
-  include privacy::ntp
+  include ntp
 }
