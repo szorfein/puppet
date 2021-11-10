@@ -17,7 +17,7 @@ class privacy::ntp {
       ensure             => absent,
       path               => '/etc/tor/torrc',
       match              => '^SocksPort\ 9055',
-      match__for_absence => true,
+      match_for_absence  => true,
       notify             => Service['tor'],
     }
 
