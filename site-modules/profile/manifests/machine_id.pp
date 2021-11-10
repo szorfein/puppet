@@ -1,4 +1,4 @@
-class provider::machine_id {
+class profile::machine_id {
 
   include privacy::machine_id
 }
