@@ -1,4 +1,4 @@
-class sysctl::config_userspace {
+class sysctl_conf::userspace {
   sysctl { 'kernel.yama.ptrace_scope': value => '2' }
   sysctl { 'vm.mmap_rnd_bits': value         => '32' }
   sysctl { 'vm.mmap_rnd_compat_bits': value  => '16' }

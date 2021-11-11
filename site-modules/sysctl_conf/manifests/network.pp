@@ -1,4 +1,4 @@
-class sysctl::config_network {
+class sysctl_conf::network {
   sysctl { 'net.ipv4.tcp_syncookies': value                   => '1' }
   sysctl { 'net.ipv4.tcp_rfc1337': value                      => '1' }
   sysctl { 'net.ipv4.conf.all.rp_filter': value               => '1' }

@@ -1,4 +1,4 @@
 class profile::sysctl {
 
-  include sysctl
+  include sysctl_conf
 }

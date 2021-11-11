@@ -1,4 +1,4 @@
-class sysctl::config_kernel {
+class sysctl_conf::kernel {
   sysctl { 'kernel.kptr_restrict': value             => '2' }
   sysctl { 'kernel.dmesg_restrict': value            => '1' }
   sysctl { 'kernel.printk': value                    => '3 3 3 3' }
