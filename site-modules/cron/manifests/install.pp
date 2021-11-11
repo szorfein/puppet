@@ -1,5 +1,9 @@
 class cron::install {
 
+  if $operatingsystem == 'Gentoo' {
+    include gentoo
+  }
+
   $pkg = $operatingsystem ? {
     gentoo  => 'sys-process/cronie',
     default => 'cronie'

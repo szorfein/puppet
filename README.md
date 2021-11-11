@@ -15,6 +15,16 @@ Or manually:
     sudo mv production production.backup
     sudo git clone https://github.com/szorfein/puppet production
 
+## Configuration
+The configuration is made into `data/common.yaml`, you may change for example the `service_provider`
+
+```yaml
+---
+  service_provider: 'runnit'
+```
+
+The list of the service provider are [here](https://puppet.com/docs/puppet/7/types/service.html#service-attribute-provider).
+
 ## First launch
 
     sudo puppet apply /etc/puppetlabs/code/environments/production/manifests
