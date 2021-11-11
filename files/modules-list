@@ -1,3 +1,4 @@
 puppet module install puppetlabs-cron_core --version 1.1.0
 puppet module install puppetlabs-stdlib --version 8.1.0
 puppet module install gentoo-portage --version 2.3.0
+puppet module install thias-sysctl --version 1.0.7
