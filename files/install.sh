@@ -15,4 +15,9 @@ cd "$WORKDIR"
 [ -d ./production ] && die "An existing directory $WORKDIR/production exist"
 git clone https://github.com/szorfein/puppet production
 
+# Installing modules
+while read line; do
+  sh -c "$line"
+done < ./files/modules-list
+
 echo "Install done."

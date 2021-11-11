@@ -11,4 +11,10 @@ die() { echo "[-] $1"; return 1; }
 
 cd "$WORKDIR"
 git pull
+
+# Installing modules
+while read line; do
+  sh -c "$line"
+done < ./files/modules-list
+
 puppet apply --environment production manifests/
