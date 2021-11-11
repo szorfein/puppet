@@ -10,7 +10,6 @@ class ntp::service {
 
   cron { 'secure-time-sync':
     command => $script,
-    hour    => '*',
-    minute  => '*/30',
+    hour    => '*/2',
   }
 }

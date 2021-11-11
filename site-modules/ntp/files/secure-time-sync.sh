@@ -98,3 +98,5 @@ fi
 
 # Set the time to the value we just extracted.
 date -s "${NEW_TIME}"
+
+exit 0
