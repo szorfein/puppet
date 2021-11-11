@@ -1,9 +1,9 @@
 class sysctl_conf::install {
 
   if $operatingsystem == 'Gentoo' {
-    file { '/usr/sbin/sysctl':
+    file { '/sbin/sysctl':
       ensure => 'link',
-      target => '/sbin/sysctl'
+      target => '/usr/sbin/sysctl'
     }
   }
 }
