@@ -1,6 +1,6 @@
 class ntp::install {
 
-  include tor
+  include pkgs::tor
 
   $dir = '/etc/puppetlabs/code/environments/production/site-modules/ntp/files'
 

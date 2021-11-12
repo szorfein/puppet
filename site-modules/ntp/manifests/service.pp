@@ -1,6 +1,6 @@
 class ntp::service {
 
-  include cron
+  include pkgs::cron
 
   if $ntp::use_tor {
     $script = '/usr/local/bin/secure-time-sync --with-tor'

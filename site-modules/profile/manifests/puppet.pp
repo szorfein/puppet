@@ -1,6 +1,6 @@
 class profile::puppet {
 
-  include cron
+  include pkgs::cron
 
   $dir = '/etc/puppetlabs/code/environments/production/site-modules/profile/files'
 

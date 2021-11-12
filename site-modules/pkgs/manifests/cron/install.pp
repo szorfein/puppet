@@ -1,4 +1,4 @@
-class cron::install {
+class pkgs::cron::install {
 
   if $operatingsystem == 'Gentoo' {
     include gentoo

@@ -1,4 +1,4 @@
-class cron::service {
+class pkgs::cron::service {
 
   $systemctl = '/bin/systemctl'
 
