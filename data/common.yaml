@@ -1,6 +1,5 @@
 ---
   harden_sysctl: true
-  service_provider: 'systemd'
   classes:
     - role::harden
     - role::privacy

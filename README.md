@@ -16,14 +16,14 @@ Or manually:
     sudo git clone https://github.com/szorfein/puppet production
 
 ## Configuration
-The configuration is made into `data/common.yaml`, you may change for example the `service_provider`
+The configuration is made into `data/common.yaml`, you may change for example the `ntp::use_tor`
 
 ```yaml
 ---
-  service_provider: 'runnit'
+  ntp::use_tor: false
 ```
 
-The list of the service provider are [here](https://puppet.com/docs/puppet/7/types/service.html#service-attribute-provider).
+Will use only `https`, if `tor` is `true`, it use address like `http://dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion` or `https://3g2upl4pq6kufc4m.onion`.
 
 ## First launch
 
