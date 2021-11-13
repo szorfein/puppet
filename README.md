@@ -23,7 +23,7 @@ The configuration is made into `data/common.yaml`, you may change for example th
   ntp::use_tor: false
 ```
 
-Will use only `https`, if `tor` is `true`, it use address like `http://dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion` or `https://3g2upl4pq6kufc4m.onion`.
+Will use only `https`, if `tor` is `true`, it use address like `http://dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion`.
 
 ## First launch
 

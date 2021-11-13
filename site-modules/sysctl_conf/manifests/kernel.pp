@@ -11,5 +11,4 @@ class sysctl_conf::kernel {
   sysctl { 'kernel.unprivileged_userns_clone': value => '0' }
   sysctl { 'user.max_user_namespaces': value         => '0' }
   sysctl { 'kernel.perf_event_paranoid': value       => '3' }
-  sysctl { 'kernel.core_pattern': value              => '|/bin/false' }
 }
