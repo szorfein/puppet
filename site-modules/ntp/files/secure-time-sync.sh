@@ -16,26 +16,31 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# Exits if the script isn't running as root.
-if [[ "$(id -u)" -ne 0 ]]; then
-    echo "ERROR: This program needs to be run as root."
-    exit 1
-fi
+set -o errexit
 
-while test $# -gt 0; do
-        case "$1" in
-                --use-tor)
-                        use_tor="true"
-                        break
-                        ;;
-        esac
+die() { echo "ERROR: $1"; exit 1; }
+
+# Exits if the script isn't running as root.
+[ "$(id -u)" -eq 0 ] || die "This program needs to be run as root."
+
+while [ "$#" -gt 0 ] ; do
+    case "$1" in
+      --use-tor)
+        use_tor="true"
+        break
+        ;;
+      -- | -* | *)
+        die "${0} -> Invalid option '$1'"
+        ;;
+    esac
 done
 
 # Select a random website out of the pool.
 select_pool() {
   # Use the onion service if the "--use-tor" flag was set.
   if [ "${use_tor}" = "true" ]; then
-    POOL[1]="http://expyuzz4wqqyqhjn.onion"
+    #POOL[1]="http://expyuzz4wqqyqhjn.onion"
+    POOL[1]="http://2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid.onion"
   else
     POOL[1]="https://www.torproject.org"
   fi
@@ -52,7 +57,8 @@ select_pool() {
 
   # DuckDuckGo.
   if [ "${use_tor}" = "true" ]; then
-    POOL[4]="https://3g2upl4pq6kufc4m.onion"
+    #POOL[4]="https://3g2upl4pq6kufc4m.onion"
+    POOL[4]="https://duckduckgogg42xjoc72x3sjasowoarfbgcmvfimaftt6twagswzczad.onion"
   else
     POOL[4]="https://duckduckgo.com"
   fi
@@ -83,8 +89,7 @@ else
 fi
 
 if ! ${SECURE_CURL} -s ${SELECTED_POOL} &>/dev/null; then
-  echo "ERROR: Could not connect to the website."
-  exit 1
+  die "Could not connect to the website."
 fi
 
 # Extract the current time from the http header when connecting to one of the websites in the pool.
@@ -98,5 +103,3 @@ fi
 
 # Set the time to the value we just extracted.
 date -s "${NEW_TIME}"
-
-exit 0
