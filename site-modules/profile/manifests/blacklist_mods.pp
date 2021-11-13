@@ -20,7 +20,7 @@ class profile::blacklist_mods {
   $mods_false.each |String $mod| {
     file_line { "blacklist-${mod}":
       ensure => present,
-      match  => "^install\ ${mod}\ /bin/false",
+      line  => "install ${mod} /bin/false",
       path   => $file_path,
     }
   }
@@ -28,7 +28,7 @@ class profile::blacklist_mods {
   $mods_true.each |String $mod| {
     file_line { "blacklist-${mod}":
       ensure => present,
-      match  => "^install\ ${mod}\ /bin/true",
+      line   => "install ${mod} /bin/true",
       path   => $file_path,
     }
   }
