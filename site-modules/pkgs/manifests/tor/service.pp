@@ -1,8 +1,6 @@
 class pkgs::tor::service {
 
-  $systemctl = '/bin/systemctl'
-
-  if find_file($systemctl) {
+  if find_file('/bin/systemctl') {
 
     service { 'tor':
       ensure   => running,
