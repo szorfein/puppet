@@ -2,8 +2,6 @@ class ntp::install {
 
   include pkgs::tor
 
-  $dir = '/etc/puppetlabs/code/environments/production/site-modules/ntp/files'
-
   if $ntp::use_tor {
     file_line { 'add-secure-time-sync-tor':
       path   => '/etc/tor/torrc',
@@ -23,7 +21,7 @@ class ntp::install {
   }
 
   file { '/usr/local/bin/secure-time-sync':
-    source => "${dir}/secure-time-sync.sh",
-    mode   => '0744',
+    content => file('ntp/secure-time-sync.sh'),
+    mode    => '0744',
   }
 }

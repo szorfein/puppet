@@ -8,7 +8,10 @@ class profile::core_dump {
 
   # sysctl
   if find_file('/etc/sysctl.d') {
-    sysctl { 'kernel.core_pattern': value => '|/bin/false' }
+    file { '/etc/sysctl.d/kernel.core_pattern.conf':
+      ensure  => present,
+      content => "kernel.core_pattern=|/bin/false\n"
+    }
   } else {
     file_line { 'sysctl-hard-core':
       path => '/etc/sysctl.conf',
