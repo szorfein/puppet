@@ -2,15 +2,16 @@ class pkgs::tor::install {
 
   if $operatingsystem == 'Gentoo' {
     include gentoo
-  }
 
-  $pkg = $operatingsystem ? {
-    gentoo  => 'net-vpn/tor',
-    default => 'tor'
-  }
+    package_use { 'net-vpn/tor':
+      use    => [ 'seccomp' ],
+      target => 'tor',
+      ensure => present
+    }
+  } else {
 
-  package { 'tor':
-    ensure => installed,
-    name   => $pkg
+    package { 'tor':
+      ensure => installed,
+    }
   }
 }

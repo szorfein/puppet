@@ -33,3 +33,10 @@ Will use only `https`, if `use_tor` is `true`, it use `onion` address like `http
 
 + `/usr/local/bin/run-puppet`: update the repo and apply new change.
 + `/usr/local/bin/secure-time-sync`: update localtime securely [src](https://gitlab.com/madaidan/secure-time-sync/).
+
+#### Links
+
++ [Archlinux Security](https://wiki.archlinux.org/title/Security)
++ [Linux hardening](https://madaidans-insecurities.github.io/guides/linux-hardening.html)
++ [Privacy Tools](https://www.privacytools.io/)
++ [Secure Shell](https://stribika.github.io/2015/01/04/secure-secure-shell.html)
