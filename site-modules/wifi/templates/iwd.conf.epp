@@ -1,3 +1,4 @@
+<%- | String $dns = 'systemd' | -%>
 [General]
 <% if $wifi::spoof_mac == true { -%>
 AddressRandomization=network
@@ -5,6 +6,9 @@ AddressRandomizationRange=nic
 <% } else { -%>
 AddressRandomization=disabled
 <% } -%>
+
+[Network]
+NameResolvingService=<%= $dns %>
 
 [Scan]
 DisablePeriodicScan=true

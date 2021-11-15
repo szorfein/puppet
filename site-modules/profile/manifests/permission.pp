@@ -4,7 +4,7 @@ class profile::permission {
 
   $dirs.each |String $dir| {
     file { $dir:
-      ensure => 'directory',
+      ensure => directory,
       mode   => '0700',
     }
   }
