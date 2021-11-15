@@ -6,3 +6,6 @@
     - profile::puppet
   ntp::use_tor: true
   privacy::generic_machine_id: true
+  wifi::enable: true
+  wifi::client: 'iwd'
+  wifi::spoof_mac: true
