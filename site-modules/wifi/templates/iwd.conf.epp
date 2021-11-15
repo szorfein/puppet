@@ -1,6 +1,5 @@
 [General]
 <% if $wifi::spoof_mac == true { -%>
-  <%# WIFI SPOOFING MAC TRUE %>
 AddressRandomization=network
 AddressRandomizationRange=nic
 <% } else { -%>

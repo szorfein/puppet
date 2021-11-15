@@ -1,6 +1,8 @@
 class wifi::install {
 
-  if $wifi::enable and $wifi::use_iwd {
-    include pkgs::iwd
+  if $wifi::enable {
+    if $wifi::client == 'iwd' {
+      include pkgs::iwd
+    }
   }
 }

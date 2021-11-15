@@ -5,7 +5,7 @@ class wifi::config {
 
       file { '/etc/iwd/main.conf':
         ensure  => file,
-        content => file('wifi/iwd.conf.erb'),
+        content => epp('wifi/iwd.conf.epp'),
         notify  => Service['iwd']
       }
     }
