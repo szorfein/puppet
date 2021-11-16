@@ -27,7 +27,7 @@ Will use only `https`, if `use_tor` is `true`, it use `onion` address like `http
 
 ## First launch
 
-    sudo puppet apply /etc/puppetlabs/code/environments/production/manifests
+    sudo puppet apply --environment production /etc/puppetlabs/code/environments/production/manifests
 
 ## Scripts added
 
