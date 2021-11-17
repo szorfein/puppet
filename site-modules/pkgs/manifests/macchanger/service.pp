@@ -6,6 +6,7 @@ class pkgs::macchanger::service {
     file { '/etc/systemd/system/macspoof@.service':
       content => file('pkgs/macspoof.service'),
       ensure  => present,
+      mode    => '0744'
     }
   }
 }
