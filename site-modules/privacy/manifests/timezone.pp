@@ -1,7 +1,7 @@
 class privacy::timezone {
 
   if $privacy::generic_timezone {
-    
+
     # if systemd
     if find_file('/bin/systemctl') or find_file('/usr/bin/systemctl') {
 
