@@ -7,7 +7,8 @@ class profile::hidepid {
   file_line { 'fstab-hidepid':
     ensure => present,
     path   => '/etc/fstab',
-    line   => 'proc /proc proc nosuid,nodev,noexec,hidepid=2,gid=proc 0 0'
+    line   => 'proc /proc proc nosuid,nodev,noexec,hidepid=2,gid=proc 0 0',
+    match  => '^proc'
   }
 
   # if systemd

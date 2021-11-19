@@ -11,7 +11,8 @@ class privacy::spoof_mac {
 
           notice("Enabling macspoof for $key.")
           service { "macspoof@${key}":
-            enable => true
+            enable   => true,
+            provider => 'systemd'
           }
         }
       } else {
@@ -20,7 +21,8 @@ class privacy::spoof_mac {
 
           notice("Disabling macspoof for $key.")
           service { "macspoof@${key}":
-            enable => false
+            enable   => false,
+            provider => 'systemd'
           }
         }
       }
