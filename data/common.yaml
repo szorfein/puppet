@@ -4,6 +4,7 @@
     - role::harden
     - role::privacy
     - profile::puppet
+    - profile::ssh
   ntp::use_tor: true
   privacy::generic_machine_id: true
   privacy::generic_timezone: true

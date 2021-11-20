@@ -1,4 +1,4 @@
 class ssh::install {
-  include pkgs::openssh
 
+  include pkgs::openssh
 }
