@@ -1,0 +1,14 @@
+---
+  harden_sysctl: true
+  classes:
+    - role::harden
+    - role::privacy
+    - profile::puppet
+    - profile::ssh
+  ntp::use_tor: true
+  privacy::generic_machine_id: true
+  privacy::generic_timezone: true
+  privacy::mac_spoof_ethernet_cards: true
+  wifi::enable: true
+  wifi::client: 'iwd'
+  wifi::spoof_mac: true
