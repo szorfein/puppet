@@ -47,6 +47,8 @@ installing_dep() {
     echo "dev-ruby/rash_alt" >> /etc/portage/package.accept_keywords/r10k
     echo "dev-ruby/multipart-post" >> /etc/portage/package.accept_keywords/r10k
 
+    chmod 644 /etc/portage/package.accept_keywords/r10k
+
     echo "Installing $GENTOO_DEPS for Gentoo..."
     emerge -av $GENTOO_DEPS
   else
