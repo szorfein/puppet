@@ -3,17 +3,11 @@ My whole system managed by [Puppet](https://puppet.com/).
 
 ## Dependencies
 
-    puppet git
+    puppet git r10k curl
 
 ## Clone and install this repository
 
     curl -s https://raw.githubusercontent.com/szorfein/puppet/main/files/install.sh | sudo sh
-
-Or manually:
-
-    cd /etc/puppetlabs/code/environments
-    sudo mv production production.backup
-    sudo git clone https://github.com/szorfein/puppet production
 
 ## Configuration
 The configuration is made into `data/common.yaml`, you may change for example the `ntp::use_tor`
@@ -27,7 +21,7 @@ Will use only `https`, if `use_tor` is `true`, it use `onion` address like `http
 
 ## First launch
 
-    sudo puppet apply --environment production /etc/puppetlabs/code/environments/production/manifests
+    sudo puppet apply --environment main /etc/puppetlabs/code/environments/main/manifests
 
 ## Scripts added
 

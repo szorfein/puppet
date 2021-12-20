@@ -2,5 +2,5 @@
 # ref: https://github.com/puppetlabs/r10k/blob/main/r10k.yaml.example
 sources:
   szorfein:
-    basedir: '/etc/puppetlabs/puppet/environments'
-    remote: 'https://github.com/szorfein/puppet.git'
+    basedir: '/etc/puppetlabs/code/environments'
+    remote: 'https://github.com/szorfein/puppet'

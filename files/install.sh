@@ -6,7 +6,7 @@ WORKDIR="/etc/puppetlabs/code/environments"
 DEPS="puppet git r10k curl"
 DEPS_LACKED=""
 
-die() { echo "[-] $1"; return 1; }
+die() { echo "[-] $1"; exit 1; }
 
 search_dep() {
   echo "Searching dependencies..."
@@ -58,22 +58,12 @@ installing_dep() {
 installing_puppet_repo() {
   echo "Installing my Puppet repository..."
 
-  [ -f /etc/r10k.yaml ] && die "/etc/r10k.yaml exist alrealy."
-  curl -sSL -o /etc/r10k.yaml https://raw.githubusercontent.com/szorfein/puppet/main/files/r10k.yaml
+  [ -d /etc/puppetlabs/r10k ] || mkdir -p /etc/puppetlabs/r10k
+  curl -sSL -o /etc/puppetlabs/r10k/r10k.yaml https://raw.githubusercontent.com/szorfein/puppet/main/files/r10k.yaml
 
-  r10k deploy environment -p
+  r10k deploy environment --puppetfile
 
-  cd "$WORKDIR"
-  #[ -d ./production ] && die "An existing directory $WORKDIR/production exist"
-  #git clone https://github.com/szorfein/puppet production
-
-  # Installing modules
-  #while read line; do
-  #  sh -c "$line"
-  #done < ./files/modules-list
-  r10k puppetfile install --verbose
-
-  echo "Install done."
+  echo "Install done"
 }
 
 main() {
@@ -84,7 +74,6 @@ main() {
     installing_dep
   fi
 
-  #die "just for you"
   installing_puppet_repo
 }
 
