@@ -9,5 +9,9 @@ hierarchy:
   - name: "Per-OS defaults"
     path: "os/%{facts.os.family}.yaml"
 
+  # Temporary solution without a Puppet Master, will probably use Puppet Node later...
+  - name: "Per-Board Product default"
+    path: "board/%{facts.dmi.board.product}.yaml"
+
   - name: "Common defaults"
     path: "common.yaml"

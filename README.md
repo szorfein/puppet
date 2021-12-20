@@ -10,7 +10,14 @@ My whole system managed by [Puppet](https://puppet.com/).
     curl -s https://raw.githubusercontent.com/szorfein/puppet/main/files/install.sh | sudo sh
 
 ## Configuration
-The configuration is made into `data/common.yaml`, you may change for example the `ntp::use_tor`
+The configuration can be made into `data/common.yaml`. You can also create a config for your target PC with:
+
+    $ facter dmi.board.product
+    W51XTU
+
+    touch data/board/W51XTU.yaml
+
+You may change for example the `ntp::use_tor`
 
 ```yaml
 ---
