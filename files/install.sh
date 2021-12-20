@@ -3,21 +3,89 @@
 set -o errexit
 
 WORKDIR="/etc/puppetlabs/code/environments"
+DEPS="puppet git r10k curl"
+DEPS_LACKED=""
 
 die() { echo "[-] $1"; return 1; }
 
-[ -d /etc/puppetlabs ] || die "directory /etc/puppetlabs no found"
-[ "$(id -u)" -eq 0 ] || die "Please run as root"
+search_dep() {
+  echo "Searching dependencies..."
 
-echo "Installing my Puppet dots..."
+  for dep in $DEPS; do
+    if ! hash "$dep" 2>/dev/null ; then
+      DEPS_LACKED="$dep $DEPS_LACKED"
+    fi
+  done
 
-cd "$WORKDIR"
-[ -d ./production ] && die "An existing directory $WORKDIR/production exist"
-git clone https://github.com/szorfein/puppet production
+  [ -z "$DEPS_LACKED" ] && return 0
+  return 1
+}
 
-# Installing modules
-while read line; do
-  sh -c "$line"
-done < ./files/modules-list
+installing_dep() {
+  if [ -f /etc/gentoo-release ] ; then
 
-echo "Install done."
+    [ -d /etc/portage/package.accept_keywords ] \
+      || mkdir -p /etc/portage/package.accept_keywords
+
+    GENTOO_DEPS=""
+    for dep in $DEPS_LACKED; do
+      if [ "$dep" == "git" ] ; then
+        GENTOO_DEPS="dev-vcs/git $GENTOO_DEPS"
+      else
+        GENTOO_DEPS="$dep $GENTOO_DEPS"
+      fi
+    done
+
+    # masked by ~amd64 keyword...
+    echo "app-admin/r10k" > /etc/portage/package.accept_keywords/r10k
+    echo "dev-ruby/colored2" >> /etc/portage/package.accept_keywords/r10k
+    echo "dev-ruby/cri" >> /etc/portage/package.accept_keywords/r10k
+    echo "dev-ruby/puppet_forge" >> /etc/portage/package.accept_keywords/r10k
+    echo "dev-ruby/faraday" >> /etc/portage/package.accept_keywords/r10k
+    echo "dev-ruby/faraday_middleware" >> /etc/portage/package.accept_keywords/r10k
+    echo "dev-ruby/simple_oauth" >> /etc/portage/package.accept_keywords/r10k
+    echo "dev-ruby/rash_alt" >> /etc/portage/package.accept_keywords/r10k
+    echo "dev-ruby/multipart-post" >> /etc/portage/package.accept_keywords/r10k
+
+    echo "Installing $GENTOO_DEPS for Gentoo..."
+    emerge -av $GENTOO_DEPS
+  else
+    echo "Don't known how install $DEPS_LACKED for you system."
+    echo "Please, ensure they are installed."
+  fi
+}
+
+installing_puppet_repo() {
+  echo "Installing my Puppet repository..."
+
+  [ -f /etc/r10k.yaml ] && die "/etc/r10k.yaml exist alrealy."
+  curl -sSL -o /etc/r10k.yaml https://raw.githubusercontent.com/szorfein/puppet/main/files/r10k.yaml
+
+  r10k deploy environment -p
+
+  cd "$WORKDIR"
+  #[ -d ./production ] && die "An existing directory $WORKDIR/production exist"
+  #git clone https://github.com/szorfein/puppet production
+
+  # Installing modules
+  #while read line; do
+  #  sh -c "$line"
+  #done < ./files/modules-list
+  r10k puppetfile install --verbose
+
+  echo "Install done."
+}
+
+main() {
+  [ -d /etc/puppetlabs ] || die "directory /etc/puppetlabs no found"
+  [ "$(id -u)" -eq 0 ] || die "Please run as root"
+
+  if ! search_dep ; then
+    installing_dep
+  fi
+
+  #die "just for you"
+  installing_puppet_repo
+}
+
+main
