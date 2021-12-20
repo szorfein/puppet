@@ -1,13 +1,8 @@
 class pkgs::wpa_supplicant::install {
 
-  $pkg = $operatingsystem ? {
-    gentoo  => 'net-wireless/wpa_supplicant',
-    default => 'wpa_supplicant'
-  }
-
   package { 'wpa_supplicant':
     ensure => installed,
-    name   => $pkg
+    name   => $pkgs::wpa_supplicant::pkg_name
   }
 
   $pkg_drop = $operatingsystem ? {

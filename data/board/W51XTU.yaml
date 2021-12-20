@@ -1,5 +1,4 @@
 ---
-  harden_sysctl: true
   classes:
     - role::harden
     - role::privacy
