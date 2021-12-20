@@ -1,2 +1,7 @@
 ---
+  pkgs::cron::pkg_name: 'sys-process/cronie'
+  pkgs::iwd::pkg_name: 'net-wireless/iwd'
+  pkgs::macchanger::pkg_name: 'net-analyzer/macchanger'
+  pkgs::openssh::pkg_name: 'net-misc/openssh'
   pkgs::tor::pkg_name: 'net-vpn/tor'
+  pkgs::wpa_supplicant::pkg_name: 'net-wireless/wpa_supplicant'

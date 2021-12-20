@@ -1,7 +1,6 @@
 class pkgs::entropy::install {
 
   if $operatingsystem == 'Gentoo' {
-    include gentoo
 
     # only work on amd64 mips x86
     if $facts['os']['architecture'] == 'amd64' {

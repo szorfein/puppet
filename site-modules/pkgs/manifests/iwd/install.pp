@@ -1,13 +1,8 @@
 class pkgs::iwd::install {
 
-  $pkg = $operatingsystem ? {
-    gentoo  => 'net-wireless/iwd',
-    default => 'iwd'
-  }
-
   package { 'iwd':
     ensure => installed,
-    name   => $pkg
+    name   => $pkgs::iwd::pkg_name
   }
 
   $pkg_drop = $operatingsystem ? {
