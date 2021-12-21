@@ -17,15 +17,6 @@ The configuration can be made into `data/common.yaml`. You can also create a con
 
     touch data/board/W51XTU.yaml
 
-You may change for example the `ntp::use_tor`
-
-```yaml
----
-  ntp::use_tor: false
-```
-
-Will use only `https`, if `use_tor` is `true`, it use `onion` address like `http://dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion`.
-
 ## First launch
 
     sudo puppet apply --environment main /etc/puppetlabs/code/environments/main/manifests
