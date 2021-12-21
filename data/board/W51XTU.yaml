@@ -8,6 +8,6 @@
   ntp::use_tor: true
   privacy::generic_machine_id: true
   privacy::generic_timezone: true
-  privacy::mac_spoof_ethernet_cards: true
+  privacy::spoof_mac_ethernet: true
   wifi::client: 'iwd'
   wifi::spoof_mac: true

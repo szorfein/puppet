@@ -6,13 +6,14 @@
 
 #### Public Classes
 
-* [`ntp::use_tor`](#ntp): Use [secure-time-sync](https://gitlab.com/madaidan/secure-time-sync/) to update the locale time with Https or TOR.
+* [`ntp`](#ntp): Install and use the script [secure-time-sync](https://gitlab.com/madaidan/secure-time-sync/) in a cron job to update the locale time with HTTPS or TOR.
+* [`privacy`](#privacy): Reduces the information your computer can share.
 
 ## Classes
 
-### <a name="ntp"></a>`ntp::use_tor`
+### <a name="ntp"></a>`ntp`
 
-Use [secure-time-sync](https://gitlab.com/madaidan/secure-time-sync/) to update the locale time with Https or TOR.
+Use [secure-time-sync](https://gitlab.com/madaidan/secure-time-sync/) to update the locale time with HTTPS or TOR.
 
 #### Parameters
 
@@ -28,3 +29,29 @@ If you use TOR, it use onion address for [torproject.org](http://2gzyxa5ihm7nsgg
 
 Default value: `'false'`
 
+### <a name="privacy"></a>`privacy`
+
+Reduces the information your computer can share.
+
+#### Parameters
+
+The following parameters are available in the `privacy` class:
+
+* [`privacy::generic_machine_id`](#generic_machine_id)
+* [`privacy::spoof_mac_ethernet`](#spoof_mac_ethernet)
+
+##### <a name="generic_machine_id"></a>`generic_machine_id`
+
+Data type: `Boolean`
+
+If true, create a generic value for the file `/etc/machine-id`.
+
+Default value: `'false'`
+
+##### <a name="spoof_mac_ethernet"></a>`spoof_mac_ethernet`
+
+Data type: `Boolean`
+
+Install and use the package `macchanger` to change your mac address for ethernet cards.
+
+Default value: `'false'`
