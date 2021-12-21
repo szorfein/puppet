@@ -10,6 +10,17 @@
 * [`privacy`](#privacy): Reduces the information your computer can share.
 * [`wifi`](#wifi): Install and configure the wifi.
 
+#### Private Classes
+
+* `pkgs`: Install and configure packages when needed.
+* `pkgs::cron`: Install package `cronie`.
+* `pkgs::entropy`: Install [jitterentropy-rngd](https://github.com/smuellerDD/jitterentropy-rngd) or [haveged](http://www.issihosts.com/haveged/), depend of os.family.
+* `pkgs::iwd`
+* `pkgs::macchanger`
+* `pkgs::openssh`
+* `pkgs::tor`
+* `pkgs::wpa_supplicant`
+
 ## Classes
 
 ### <a name="ntp"></a>`ntp`
