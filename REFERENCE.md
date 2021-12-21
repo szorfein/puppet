@@ -8,6 +8,7 @@
 
 * [`ntp`](#ntp): Install and use the script [secure-time-sync](https://gitlab.com/madaidan/secure-time-sync/) in a cron job to update the locale time with HTTPS or TOR.
 * [`privacy`](#privacy): Reduces the information your computer can share.
+* [`wifi`](#wifi): Install and configure the wifi.
 
 ## Classes
 
@@ -25,7 +26,7 @@ The following parameters are available in the `ntp` class:
 
 Data type: `Boolean`
 
-If you use TOR, it use onion address for [torproject.org](http://2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid.onion") or [tails.boom.org](http://dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion").
+If you use TOR, it use onion address for [torproject.org](http://2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid.onion) or [tails.boom.org](http://dds6qkxpwdeubwucdiaord2xgbbeyds25rbsgr73tbfpqpt4a6vjwsyd.onion).
 
 Default value: `'false'`
 
@@ -62,5 +63,32 @@ Default value: `'false'`
 Data type: `Boolean`
 
 Install and use the package `macchanger` to change your mac address for ethernet cards.
+
+Default value: `'false'`
+
+### <a name="wifi"></a>`wifi`
+
+Install and configure the wifi.
+
+#### Parameters
+
+The following parameters are available in the `wifi` class:
+
+* [`wifi::client`](#client)
+* [`wifi::spoof_mac`](#spoof_mac)
+
+##### <a name="client"></a>`client`
+
+Data type: `Enum['iwd', 'wpa_supplicant']`
+
+Install and configure the package `iwd` or `wpa_supplicant`.
+
+Default value: `'iwd'`
+
+##### <a name="spoof_mac"></a>`spoof_mac`
+
+Data type: `Boolean`
+
+If true, configure the client (`iwd` or `wpa_supplicant`) to spoof the MAC address.
 
 Default value: `'false'`
