@@ -38,13 +38,22 @@ Reduces the information your computer can share.
 The following parameters are available in the `privacy` class:
 
 * [`privacy::generic_machine_id`](#generic_machine_id)
+* [`privacy::generic_timezone`](#generic_timezone)
 * [`privacy::spoof_mac_ethernet`](#spoof_mac_ethernet)
 
 ##### <a name="generic_machine_id"></a>`generic_machine_id`
 
 Data type: `Boolean`
 
-If true, create a generic value for the file `/etc/machine-id`.
+If true, create a generic value for the file `/etc/machine-id` and `/var/lib/dbus/machine-id` if exist.
+
+Default value: `'false'`
+
+##### <a name="generic_timezone"></a>`generic_timezone`
+
+Data type: `Boolean`
+
+If true, change the file `/etc/localtime` to use a generic timezone like `UTC`.
 
 Default value: `'false'`
 
