@@ -5,7 +5,7 @@ class privacy::spoof_mac {
   $facts['networking']['interfaces'].each |$key, $value| {
     if $key =~ /^e/ {
 
-      if $privacy::mac_spoof_ethernet_cards {
+      if $privacy::spoof_mac_ethernet {
 
         if find_file('/etc/systemd/system/macspoof@.service') {
 
