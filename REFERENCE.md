@@ -49,9 +49,18 @@ Reduces the information your computer can share.
 
 The following parameters are available in the `privacy` class:
 
+* [`privacy::generic_hostname`](#generic_hostname)
 * [`privacy::generic_machine_id`](#generic_machine_id)
 * [`privacy::generic_timezone`](#generic_timezone)
 * [`privacy::spoof_mac_ethernet`](#spoof_mac_ethernet)
+
+##### <a name="generic_hostname"></a>`generic_hostname`
+
+Data type: `Boolean`
+
+If true, use a generic value for the file `/etc/hostname` and `/etc/hosts`.
+
+Default value: `'false'`
 
 ##### <a name="generic_machine_id"></a>`generic_machine_id`
 
