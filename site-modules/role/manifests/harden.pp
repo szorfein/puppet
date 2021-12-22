@@ -6,4 +6,5 @@ class role::harden {
   include profile::permission
   include profile::restrict_xorg
   include profile::sysctl
+  include profile::pam
 }
