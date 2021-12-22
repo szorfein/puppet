@@ -1,4 +1,4 @@
-class gentoo::tree {
+class os::gentoo::tree {
 
   notice('Verifying /etc/portage')
 
