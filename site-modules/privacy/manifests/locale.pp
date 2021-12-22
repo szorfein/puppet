@@ -14,7 +14,7 @@ class privacy::locale {
     file_line { 'us_locale':
       path  => '/etc/locale.conf',
       match => '^LANG=',
-      line  => 'LANG=en_US.UTF-8'
+      line  => "LANG=en_US.UTF-8\n"
     }
   }
 }
