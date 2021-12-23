@@ -1,6 +1,8 @@
 class privacy::hostname {
-  
+
   if $privacy::generic_hostname {
+
+    notice('Applying a generic host...')
 
     file { '/etc/hostname':
       ensure  => file,
