@@ -7,6 +7,7 @@ class ssh::config {
   file { '/etc/ssh/sshd_config':
     ensure  => file,
     content => epp('ssh/sshd_config.epp'),
+    notify  => Service['sshd'],
     mode    => '0600'
   }
 

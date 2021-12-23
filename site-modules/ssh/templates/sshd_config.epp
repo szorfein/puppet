@@ -3,6 +3,15 @@
 #ListenAddress 0.0.0.0
 #ListenAddress ::
 
+AllowTcpForwarding no
+ClientAliveCountMax 2
+Compression no
+LogLevel VERBOSE
+MaxAuthTries 3
+MaxSessions 2
+TCPKeepAlive no
+AllowAgentForwarding no
+
 HostKey /etc/ssh/ssh_host_rsa_key
 #HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
