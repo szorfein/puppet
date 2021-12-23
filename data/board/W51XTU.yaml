@@ -3,9 +3,12 @@
     - role::harden
     - role::privacy
     - profile::puppet
+    - profile::sudoers
     - profile::ssh
     - profile::wifi
   ntp::use_tor: true
+  privacy::generic_hostname: true
+  privacy::generic_locale: true
   privacy::generic_machine_id: true
   privacy::generic_timezone: true
   privacy::spoof_mac_ethernet: true

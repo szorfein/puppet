@@ -1,4 +1,4 @@
-class gentoo::config {
+class os::gentoo::config {
 
   # https mirror: https://www.gentoo.org/downloads/mirrors/
   file_line { 'portage-https-mirror':

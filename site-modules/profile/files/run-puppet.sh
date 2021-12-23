@@ -19,4 +19,4 @@ echo "Calling branch $BRANCH"
 [ "$(id -u)" -eq 0 ] || die "Please run as root."
 
 r10k deploy environment --puppetfile
-puppet apply --environment main "$WORKDIR"/manifests/
+puppet apply --environment "$BRANCH" "$WORKDIR"/manifests/

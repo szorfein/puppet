@@ -1,4 +1,6 @@
 class privacy (
+  Boolean $generic_hostname = false,
+  Boolean $generic_locale = false,
   Boolean $generic_machine_id = false,
   Boolean $generic_timezone = false,
   Boolean $spoof_mac_ethernet = false,
@@ -6,4 +8,6 @@ class privacy (
   contain privacy::machine_id
   contain privacy::timezone
   contain privacy::spoof_mac
+  contain privacy::hostname
+  contain privacy::locale
 }
