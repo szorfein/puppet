@@ -3,6 +3,7 @@
     - role::harden
     - role::privacy
     - profile::puppet
+    - profile::sudoers
     - profile::ssh
     - profile::wifi
   ntp::use_tor: true
